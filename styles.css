@@ -1,86 +1,278 @@
-a {
-  color: #1772d0;
-  text-decoration: none;
+/* ============================================================
+   CSS Custom Properties
+   ============================================================ */
+:root {
+  --blue: #1772d0;
+  --orange: #f09228;
+  --max-width: 820px;
+  --hover-bg: #f8f9fa;
+  --border-color: #e0e0e0;
+  --text: #333;
+  --light-text: #666;
 }
 
-a:focus,
-a:hover {
-  color: #f09228;
-  text-decoration: none;
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-body,
-td,
-th,
-tr,
-p,
-a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px
-}
-
-strong {
+body {
+  margin: 0;
+  padding: 0;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 14px;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
 }
 
-heading {
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+p { margin: 0 0 0.75em; }
+
+ul { margin: 0; padding-left: 1.25em; }
+li { margin-bottom: 0.4em; }
+
+/* ============================================================
+   Sticky Nav
+   ============================================================ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-inner a {
+  display: inline-block;
+  padding: 10px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.nav-inner a:hover {
+  color: var(--orange);
+}
+
+/* ============================================================
+   Page Wrapper
+   ============================================================ */
+.page-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* ============================================================
+   Section Headings
+   ============================================================ */
+.section-heading {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text);
 }
 
-anytitle {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 700
+section {
+  margin-top: 32px;
 }
 
-name {
+/* ============================================================
+   Profile Section
+   ============================================================ */
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 32px 0 0;
+}
+
+.profile-text {
+  flex: 1;
+}
+
+.profile-name {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--text);
 }
 
-/* IDK why this doesnt work */
-h1 span.korean { 
-  font-size: 36px; 
-  font-family: 'Gugi', cursive;      
+.profile-photo {
+  flex-shrink: 0;
 }
 
-.one {
-  width: 160px;
-  height: 160px;
-  position: relative;
+.profile-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
-.two {
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+/* ============================================================
+   Job Market Notice
+   ============================================================ */
+.job-notice {
+  margin: 12px 0;
+  padding: 10px 14px;
+  border-left: 4px solid #e53e3e;
+  background: #fff5f5;
+  color: #c53030;
+  font-weight: 600;
+  border-radius: 0 4px 4px 0;
 }
 
-.fade {
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+/* ============================================================
+   Profile Links (pill buttons)
+   ============================================================ */
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
 }
 
-span.highlight {
-  background-color: #ffffd0;
+.profile-links a {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid var(--blue);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--blue);
+  transition: background 0.15s, color 0.15s;
 }
 
-/* For name change stuff */
-p#namechange span#a {
-  display: inline;
+.profile-links a:hover {
+  background: var(--blue);
+  color: #fff;
 }
-p#namechange:hover span#a {
-  display: none;
+
+/* ============================================================
+   News List
+   ============================================================ */
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-p#namechange span#b {
-  display: none;
+
+.news-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-color);
+  margin: 0;
 }
-p#namechange:hover span#b {
-  display: inline;
+
+.news-list li:last-child {
+  border-bottom: none;
+}
+
+/* ============================================================
+   Paper Cards
+   ============================================================ */
+.paper {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 12px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  transition: background 0.15s;
+}
+
+.paper:hover {
+  background: var(--hover-bg);
+}
+
+.paper-thumb {
+  flex-shrink: 0;
+}
+
+.paper-thumb img {
+  width: 130px;
+  height: 78px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.paper-body {
+  flex: 1;
+}
+
+.paper-title {
+  margin: 0 0 4px;
+}
+
+.paper-authors {
+  margin: 0 0 4px;
+  color: var(--light-text);
+}
+
+.paper-links {
+  margin: 0;
+}
+
+/* ============================================================
+   Awards
+   ============================================================ */
+.award-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.award-row:last-child {
+  border-bottom: none;
+}
+
+.award-name {
+  flex: 1;
+  padding-right: 16px;
+}
+
+.award-year {
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--light-text);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+  text-align: right;
+  font-size: 12px;
+  color: var(--light-text);
 }
